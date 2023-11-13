@@ -1,3 +1,841 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;500;800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  font-size: 14px;
+  color: #6e0007;
+  overflow: hidden;
+  background: #ffedbc;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #ffedbc, #ed4264);
+  background: -webkit-linear-gradient(to bottom, #ffedbc, #ed4264);
+}
+
+a {
+  color: #6e0007;
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+small {
+  font-size: 12px;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: none;
+  margin: 8px 0;
+  display: block;
+  color: #6e0007;
+  border-radius: 5px;
+  background: #ffdab9c9;
+}
+
+input::placeholder {
+  color: #6e0007;
+}
+
+input {
+  height: 44px;
+  padding: 0 16px;
+}
+
+textarea {
+  max-height: 150px;
+  overflow: scroll;
+  padding: 16px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid #ed4264;
+}
+
+.input__wrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: baseline;
+}
+
+input.error,
+textarea.error {
+  border: 1px solid red;
+}
+.error_message {
+  display: block;
+  color: red;
+  margin-bottom: 8px;
+}
+
+.input__wrapper input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: #ffdab9c9;
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+.input__wrapper input[type="checkbox"][value="true"] {
+  background: #ed4264;
+}
+
+.checkbox__wrapper .input__wrapper {
+  flex: none;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 8px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  color: #6e0007;
+  white-space: nowrap;
+  background: peachpuff;
+  backdrop-filter: blur(3px);
+  transition: 300ms all ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  border-radius: 50px;
+  display: flex;
+  width: 0;
+  align-items: center;
+  transition: 300ms all ease-in-out;
+  border-bottom: 3px solid #ed4264;
+}
+
+button.active,
+button:hover {
+  color: #6e0007;
+  background: #fedcb4;
+}
+
+button:hover {
+  transform: translateY(2px);
+}
+
+button.active::before {
+  width: 60%;
+}
+
+.update_form_buttons__container {
+  margin: 8px 0;
+  justify-content: flex-end;
+}
+.update_form_buttons__container button:hover::before {
+  width: 60%;
+}
+
+.add_button {
+  display: flex;
+  margin: 0 0 16px auto;
+  background: #ed4264;
+}
+
+.delete_button {
+  color: peachpuff;
+  background: #6e0007;
+}
+
+/* Icons */
+.icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+/* Header */
+.header {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_logo {
+  cursor: pointer;
+  color: #ed4264;
+  font-size: 30px;
+}
+
+.header__nav {
+  display: none;
+}
+
+.mobile_menu_open {
+  gap: 24px;
+  top: 50px;
+  width: 110px;
+  right: 0px;
+  z-index: 99;
+  display: flex;
+  padding: 24px 8px;
+  position: absolute;
+  border-radius: 10px;
+  align-items: center;
+  flex-direction: column;
+  background: #ffffff20;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.nav_item {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50px;
+  width: 0px;
+  border-bottom: 3px solid #ed4264;
+  transition: all ease-in-out 300ms;
+}
+
+.nav_item.active::after {
+  width: 100%;
+}
+
+.language_selector {
+  display: flex;
+  position: relative;
+}
+.language_options {
+  top: -16px;
+  right: 80px;
+  z-index: 99;
+  height: 450px;
+  overflow: scroll;
+}
+
+.language_icon {
+  width: 40px;
+}
+/* Header end */
+
+/* Login */
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  position: fixed;
+  overflow: hidden;
+  background: #00000099;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.login_form__container {
+  width: 350px;
+  height: 400px;
+  display: flex;
+  color: peachpuff;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9in 20px 50% 50%;
+  background: linear-gradient(99deg, #6e0007, #ed4264);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.login_form {
+  gap: 8px;
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  background: #00000050;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.login_access_info {
+  bottom: 16px;
+  text-align: center;
+  position: absolute;
+}
+
+.login_icon {
+  width: 20px;
+}
+
+.close_icon {
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  position: absolute;
+}
+
+.form_login_button {
+  gap: 8px;
+  margin: 8px 0;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+/* login end */
+
+/* Display card */
+.card {
+  gap: 8px;
+  width: 110px;
+  height: 145px;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  border-radius: 24px;
+  align-items: center;
+  flex-direction: column;
+  background: #ffffff20;
+  justify-content: center;
+  transition: all ease-in-out 250ms;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.card_image__wrapper {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  background: #fdf4e43b;
+}
+
+.card_title {
+  text-align: center;
+  text-transform: capitalize;
+}
+/* end display card */
+
+/* Search */
+.search__container {
+  gap: 8px;
+  margin: 0 auto;
+  max-width: 400px;
+  position: relative;
+  transition: all ease-in-out 200ms;
+}
+
+.search__container input {
+  border: none;
+  padding: 24px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  background: linear-gradient(45deg, #fdf4e48f, transparent);
+}
+
+.search_result__container {
+  gap: 24px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.search_card {
+  width: 90px;
+  height: 110px;
+  font-size: 12px;
+  backdrop-filter: blur(6px);
+  background: #ffffff20;
+}
+
+.search_card .card_image__wrapper {
+  width: 60px;
+  height: 60px;
+  background: #fdf4e43b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_card .card_image__wrapper img {
+  object-fit: contain;
+}
+
+.search_card_title {
+  text-align: center;
+}
+
+/* search end */
+
+/* filter */
+.filter_icon {
+  display: block;
+}
+
+.filter__container {
+  z-index: 9;
+  position: relative;
+  margin: 36px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter_season_buttons_container {
+  display: none;
+}
+
+.sorting__container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.sorting_icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+.filter_options {
+  top: 45px;
+  gap: 16px;
+  z-index: 9;
+  display: flex;
+  padding: 16px;
+  position: absolute;
+  border-radius: 16px;
+  background: #ffffff20;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.sorting_options {
+  right: 0;
+}
+
+/* Filter end */
+
+/* Fruit List */
+.primary_card {
+  width: 125px;
+  height: 160px;
+  background: radial-gradient(#fdf4e4, #0000);
+}
+
+.primary_card:hover {
+  scale: 1.05;
+}
+
+.card_list__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 16px 0;
+  overflow: scroll;
+  max-height: calc(100vh - 200px);
+}
+
+.card_list__container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fruit Page */
+
+.title {
+  color: #ed4264;
+  font-size: 52px;
+}
+
+.subtitle__wrapper {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.subtitle_with_label {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__container {
+  overflow: scroll;
+  height: calc(100vh - 135px);
+}
+
+.product_detail__wrapper {
+  gap: 24px;
+  display: flex;
+  margin: 24px 0;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.product_image__wrapper {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+  background: #fdf4e43b;
+}
+
+.nutrition-item {
+  position: absolute;
+  background: #ffdab987;
+  backdrop-filter: blur(3px);
+  padding: 16px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.nutrition-item.fat {
+  bottom: 0;
+  right: -24px;
+}
+
+.nutrition-item.sugar {
+  top: 44px;
+  left: -34px;
+}
+
+.nutrition-item.protein {
+  top: 15px;
+  right: -40px;
+}
+
+.nutrition-item.calories {
+  left: -36px;
+  bottom: -15px;
+}
+
+.nutrition-item.carbohydrates {
+  left: -38px;
+  top: -15px;
+}
+
+.description__card {
+  width: 340px;
+  padding: 16px;
+  border-radius: 24px;
+  margin-bottom: 16px;
+  align-self: baseline;
+  background: #fdf4e43b;
+  max-height: 135px;
+  overflow-y: auto;
+}
+.description__card::-webkit-scrollbar {
+  display: unset;
+  margin-left: 8px;
+  width: 2px;
+}
+
+.description__card::-webkit-scrollbar-thumb {
+  background: #ed4264;
+  height: 20px;
+  border-radius: 9in;
+}
+
+.suggestion__container {
+  gap: 16px;
+  display: flex;
+  margin: 16px 0;
+  align-items: center;
+}
+
+.suggestion_card:hover {
+  translate: 0 2px;
+}
+
+.explore_button {
+  position: relative;
+  margin: 16px;
+  background: #ffdab987;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.explore_button:hover {
+  background: #ffdab987;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+}
+
+.hover_underline_button:hover::before {
+  width: 60%;
+}
+
+.button_image {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  bottom: -3px;
+}
+
+/* end fruit page */
+
+/* Update page */
+
+.update_form {
+  padding: 24px;
+  max-width: 700px;
+  margin: 16px auto;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  background: #ffffff20;
+}
+
+.update_overlay {
+  font-size: 40px;
+  border-radius: 20px;
+  color: #ed4264;
+  background: #ffdab9d6;
+}
+
+.form_group {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Update end Page */
+
+/* Footer */
+.footer {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  bottom: -3px;
+}
+
+.footer_text {
+  gap: 2px;
+  margin: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.react_icon {
+  width: 20px;
+  display: inline-block;
+}
+
+.blur {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+@media (min-width: 768px) {
+  /* Header */
+  .header {
+    height: 70px;
+  }
+
+  .header_logo {
+    font-size: 48px;
+  }
+
+  .menu_icon {
+    display: none;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .mobile_menu_open {
+    display: none;
+  }
+
+  .language_options {
+    top: 50px;
+    right: 0px;
+    height: unset;
+  }
+
+  /* Header end */
+
+  /* display card */
+  .primary_card {
+    width: 200px;
+    height: 240px;
+  }
+
+  .primary_card .card_image__wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Search */
+  .search_card {
+    width: 120px;
+    height: 150px;
+  }
+
+  .search_card .card_image__wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Filter */
+
+  .filter_icon {
+    display: none;
+  }
+
+  .filter_season_buttons_container {
+    gap: 16px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+  }
+
+  /* fruit list */
+  .card_list__container {
+    max-height: calc(100vh - 245px);
+  }
+
+  /* Display fruit */
+  .title {
+    font-size: 82px;
+  }
+  .product__container {
+    overflow: scroll;
+    height: calc(100vh - 165px);
+  }
+  .product_detail__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .product_image__wrapper {
+    width: 350px;
+    height: 350px;
+  }
+
+  .nutrition-item.fat {
+    bottom: unset;
+    right: 8px;
+    top: 8px;
+  }
+
+  .nutrition-item.sugar {
+    top: 160px;
+    left: -65px;
+  }
+
+  .nutrition-item.protein {
+    right: unset;
+    left: 0;
+  }
+
+  .nutrition-item.calories {
+    left: unset;
+    right: 0;
+  }
+
+  .nutrition-item.carbohydrates {
+    top: 230px;
+    left: -94px;
+  }
+
+  /* update form */
+  .update_form {
+    border-radius: 9in 20px 50% 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .description__card {
+    width: 400px;
+  }
+
+  .nutrition-item.fat {
+    top: 80px;
+    right: -30px;
+  }
+
+  .nutrition-item.sugar {
+    top: 0px;
+    left: 24px;
+  }
+
+  .nutrition-item.protein {
+    bottom: 140px;
+    left: -80px;
+    top: unset;
+  }
+
+  .nutrition-item.calories {
+    top: 160px;
+    right: -88px;
+    bottom: unset;
+  }
+
+  .nutrition-item.carbohydrates {
+    left: -108px;
+    bottom: 67px;
+    top: unset;
+  }
+}

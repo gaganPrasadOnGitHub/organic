@@ -1,10 +1,14 @@
+import React from "react";
 import "./App.css";
+import { Provider } from "react-redux";
+import Store from "./utils/Store";
+import Router from "./routers/Router";
 
 function App() {
   return (
-    <div className="App">
-      <p className="text-lg">apple is mango</p>
-    </div>
+    <Provider store={Store}>
+      <Router />
+    </Provider>
   );
 }
 
