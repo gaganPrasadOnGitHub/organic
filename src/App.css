@@ -24,8 +24,8 @@ body {
   background: #ffedbc;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #ffedbc, #ed4264);
-  background: -webkit-linear-gradient(to bottom, #ffedbc, #ed4264);
+  background: linear-gradient(270deg, #ffedbc, #ed4264);
+  background: -webkit-linear-gradient(270deg, #ffedbc, #ed4264);
 }
 
 a {
