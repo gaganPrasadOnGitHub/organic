@@ -655,7 +655,7 @@ button.active::before {
 
 /* Footer */
 .footer {
-  bottom: 5px;
+  bottom: 8px;
   display: flex;
   width: 100%;
   max-width: 1024px;
