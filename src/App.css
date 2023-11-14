@@ -522,7 +522,7 @@ button.active::before {
 .product_image__wrapper {
   width: 250px;
   height: 250px;
-  margin: 0 auto;
+  margin: 16px auto;
   border-radius: 50%;
   position: relative;
   background: #fdf4e43b;
@@ -768,6 +768,7 @@ button.active::before {
   .product_image__wrapper {
     width: 350px;
     height: 350px;
+    margin: 0 auto;
   }
 
   .nutrition-item.fat {
