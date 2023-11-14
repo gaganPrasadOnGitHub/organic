@@ -10,13 +10,11 @@ import {
 } from "../utils/storeSlices/fruitsSlice";
 import SortFilter from "./SortFilter";
 import SeasonFilter from "./SeasonFilter";
-import { translations } from "../utils/lang/translations";
 
 const DisplayFruitList = () => {
   const { fruits, isLoading } = useFruitList();
   const filteredFruitList = useSelector(selectFilteredList);
   const dispatch = useDispatch();
-  const selectedLanguage = useSelector((state) => state.language);
 
   useEffect(() => {
     const sortedFruits = [...fruits].sort((a, b) =>
@@ -26,12 +24,12 @@ const DisplayFruitList = () => {
     dispatch(setFilteredList(sortedFruits));
   }, [dispatch, fruits]);
 
-  if (isLoading) {
-    return <div>{translations[selectedLanguage].loading}</div>;
-  }
-
-  if (!fruits.length) {
-    return <div>{translations[selectedLanguage].noFruitAvailable}</div>;
+  if (isLoading || !fruits.length) {
+    return (
+      <div className="loading">
+        <span class="loader"></span>
+      </div>
+    );
   }
 
   return (

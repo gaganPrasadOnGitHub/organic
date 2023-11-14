@@ -18,7 +18,11 @@ const FruitForm = () => {
 
   const [loading, setLoading] = useState(false);
   if (!formData) {
-    return <div>{translations[selectedLanguage].loading}</div>;
+    return (
+      <div className="loading">
+        <span class="loader"></span>
+      </div>
+    );
   }
 
   return (

@@ -46,12 +46,12 @@ const DisplayFruit = () => {
     setFruit(selectedFruit);
   }, [FruitList, name]);
 
-  if (!FruitList || FruitList.length === 0) {
-    return <div>{translations[selectedLanguage].noFruitFound}</div>;
-  }
-
-  if (!fruit) {
-    return <div>{translations[selectedLanguage].loading}</div>;
+  if (!FruitList || FruitList.length === 0 || !fruit) {
+    return (
+      <div className="loading">
+        <span class="loader"></span>
+      </div>
+    );
   }
 
   return (
