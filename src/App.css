@@ -655,8 +655,6 @@ button.active::before {
   max-width: 1024px;
   justify-content: flex-start;
   align-items: flex-end;
-  position: fixed;
-  bottom: -3px;
 }
 
 .footer_text {
@@ -800,6 +798,11 @@ button.active::before {
   /* update form */
   .update_form {
     border-radius: 9in 20px 50% 50%;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: -3px;
   }
 }
 
