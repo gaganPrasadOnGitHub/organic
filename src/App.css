@@ -486,6 +486,8 @@ button.active::before {
   justify-content: center;
   border-radius: 50px;
   padding: 16px 0;
+  overflow: scroll;
+  max-height: calc(100vh - 210px);
 }
 
 .card_list__container::-webkit-scrollbar {
