@@ -543,8 +543,8 @@ button.active::before {
 }
 
 .nutrition-item.sugar {
-  top: 44px;
-  left: -34px;
+  top: 52px;
+  left: -52px;
 }
 
 .nutrition-item.protein {
@@ -589,6 +589,11 @@ button.active::before {
   display: flex;
   margin: 16px 0;
   align-items: center;
+  justify-content: center;
+}
+
+.suggestion_card {
+  background: #ffdab987;
 }
 
 .suggestion_card:hover {

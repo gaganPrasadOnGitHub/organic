@@ -143,7 +143,7 @@ const FruitForm = () => {
             required
           />
           <InputField
-            label="Sugar"
+            label={translations[selectedLanguage].sugar}
             name="sugar"
             type="number"
             value={formData?.nutrition?.sugar}
