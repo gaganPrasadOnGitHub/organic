@@ -16,7 +16,6 @@
 }
 
 body {
-  min-height: 100vh;
   display: flex;
   font-size: 14px;
   color: #6e0007;
@@ -188,7 +187,6 @@ button.active::before {
 .container {
   width: 95%;
   margin: 0 auto;
-  height: 100vh;
   overflow: hidden;
   max-width: 1024px;
 }

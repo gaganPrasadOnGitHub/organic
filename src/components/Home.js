@@ -8,10 +8,12 @@ import UpdateFruit from "./UpdateFruit";
 import PrivateRoute from "../routers/PrivateRoute";
 import Footer from "./Footer";
 import Info from "./Info";
+import { useModalHeight } from "../hooks/useModalHeight";
 
 const Home = () => {
+  const modalHeight = useModalHeight(0, 0);
   return (
-    <div className="container">
+    <div style={{ height: modalHeight }} className="container">
       <Header />
       <Search />
       <Routes>
