@@ -493,7 +493,6 @@ button.active::before {
   padding: 16px 0;
   overflow: scroll;
   justify-content: center;
-  max-height: calc(100vh - 216px);
 }
 
 .card_list__container::-webkit-scrollbar {
@@ -503,7 +502,6 @@ button.active::before {
 /* Fruit Page */
 .product__container {
   overflow: scroll;
-  height: calc(100vh - 150px);
 }
 
 .title {
@@ -694,7 +692,7 @@ button.active::before {
 }
 
 .loading {
-  height: 100%;
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -838,19 +836,12 @@ button.active::before {
     flex-direction: row;
   }
 
-  /* fruit list */
-  .card_list__container {
-    overflow: scroll;
-    max-height: calc(100vh - 245px);
-  }
-
   /* Display fruit */
   .title {
     font-size: 82px;
   }
   .product__container {
     box-shadow: none;
-    height: calc(100vh - 165px);
   }
   .product_detail__wrapper {
     flex-direction: row;

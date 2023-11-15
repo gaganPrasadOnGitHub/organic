@@ -10,11 +10,13 @@ import {
 } from "../utils/storeSlices/fruitsSlice";
 import SortFilter from "./SortFilter";
 import SeasonFilter from "./SeasonFilter";
+import { useModalHeight } from "../hooks/useModalHeight";
 
 const DisplayFruitList = () => {
   const { fruits, isLoading } = useFruitList();
   const filteredFruitList = useSelector(selectFilteredList);
   const dispatch = useDispatch();
+  const modalHeight = useModalHeight(216, 245);
 
   useEffect(() => {
     const sortedFruits = [...fruits].sort((a, b) =>
@@ -38,7 +40,10 @@ const DisplayFruitList = () => {
         <SeasonFilter />
         <SortFilter />
       </div>
-      <div className="card_list__container container_shadow">
+      <div
+        style={{ height: modalHeight }}
+        className="card_list__container container_shadow"
+      >
         {filteredFruitList.map((fruit) => (
           <DisplayCard className="primary_card" key={fruit.id} fruit={fruit} />
         ))}
