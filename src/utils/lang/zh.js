@@ -1,5 +1,5 @@
 export const translations = {
-  organic: "有机",
+  organic: "有机的",
   save: "保存",
   update: "更新",
   addNew: "添加新",
@@ -41,4 +41,5 @@ export const translations = {
   errorDelete: "删除水果时出错：",
   invalidEmail: "无效的电子邮件地址",
   invalidPassword: "密码必须为8个字符, 包含字母和数字",
+  credits: "信用",
 };

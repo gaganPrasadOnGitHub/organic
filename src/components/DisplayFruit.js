@@ -55,7 +55,7 @@ const DisplayFruit = () => {
   }
 
   return (
-    <div className="product__container">
+    <div className="product__container mobile_container_shadow">
       <div className="title__wrapper">
         <h2 className="title">{fruit?.name}</h2>
         <div className="subtitle__wrapper">

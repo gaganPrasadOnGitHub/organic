@@ -44,4 +44,5 @@ export const translations = {
   invalidEmail: "無効なメールアドレス",
   invalidPassword:
     "パスワードは8文字以上で、文字と数字の組み合わせである必要があります",
+  credits: "クレジット",
 };

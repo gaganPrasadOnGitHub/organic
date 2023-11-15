@@ -43,4 +43,5 @@ export const translations = {
   invalidEmail: "Недопустимый адрес электронной почты",
   invalidPassword:
     "Пароль должен содержать не менее 8 символов, включая буквы и цифры",
+  credits: "Кредиты",
 };

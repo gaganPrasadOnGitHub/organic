@@ -7,6 +7,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import UpdateFruit from "./UpdateFruit";
 import PrivateRoute from "../routers/PrivateRoute";
 import Footer from "./Footer";
+import Info from "./Info";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <Route exact path="/update" element={<PrivateRoute />}>
           <Route path="/update" element={<UpdateFruit />} />
         </Route>
+        <Route path="/info" element={<Info />} />
         <Route path="*" element={<Navigate to="/fruit/Apple" />} />
       </Routes>
       <Footer />

@@ -222,7 +222,7 @@ const FruitForm = () => {
 
           {loading && (
             <div className="overlay update_overlay">
-              {translations[selectedLanguage].updating}
+              <span class="loader"></span>
             </div>
           )}
         </div>

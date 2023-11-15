@@ -43,4 +43,5 @@ export const translations = {
   invalidEmail: "عنوان البريد الإلكتروني غير صالح",
   invalidPassword:
     "يجب أن تكون كلمة المرور بطول 8 أحرف مع مزيج من الأحرف والأرقام",
+  credits: "الاعتمادات",
 };

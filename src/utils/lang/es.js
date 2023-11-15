@@ -44,4 +44,5 @@ export const translations = {
   invalidEmail: "Dirección de correo electrónico no válida",
   invalidPassword:
     "La contraseña debe tener 8 caracteres y contener letras y números",
+  credits: "Créditos",
 };

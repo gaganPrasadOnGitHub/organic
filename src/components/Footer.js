@@ -2,6 +2,7 @@ import React from "react";
 import reactIcon from "../assets/reactIcon.svg";
 import { translations } from "../utils/lang/translations";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const selectedLanguage = useSelector((state) => state.language);
@@ -18,9 +19,9 @@ const Footer = () => {
         >
           {translations[selectedLanguage].dev}
         </a>
+        | <Link to="/info">{translations[selectedLanguage].credits}</Link>
       </small>
     </div>
   );
 };
-
 export default Footer;

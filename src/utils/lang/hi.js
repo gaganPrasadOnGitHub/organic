@@ -1,5 +1,5 @@
 export const translations = {
-  organic: "कार्बनिक",
+  organic: "आर्गैनिक",
   save: "सहेजें",
   update: "अपडेट करें",
   addNew: "नया जोड़ें",
@@ -43,4 +43,5 @@ export const translations = {
   invalidEmail: "अमान्य ईमेल पता",
   invalidPassword:
     "पासवर्ड 8 अक्षरों का होना चाहिए, जिसमें अक्षर और संख्याएं शामिल हों",
+  credits: "क्रेडिट्स",
 };

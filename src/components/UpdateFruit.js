@@ -3,7 +3,7 @@ import FruitForm from "./FruitForm";
 
 const UpdateFruit = () => {
   return (
-    <div className="update_product product__container">
+    <div className="update_product product__container mobile_container_shadow">
       <FruitForm />
     </div>
   );

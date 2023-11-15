@@ -34,20 +34,14 @@ const DisplayFruitList = () => {
 
   return (
     <div>
-      <div>
-        <div className="filter__container">
-          <SeasonFilter />
-          <SortFilter />
-        </div>
-        <div className="card_list__container">
-          {filteredFruitList.map((fruit) => (
-            <DisplayCard
-              className="primary_card"
-              key={fruit.id}
-              fruit={fruit}
-            />
-          ))}
-        </div>
+      <div className="filter__container">
+        <SeasonFilter />
+        <SortFilter />
+      </div>
+      <div className="card_list__container container_shadow">
+        {filteredFruitList.map((fruit) => (
+          <DisplayCard className="primary_card" key={fruit.id} fruit={fruit} />
+        ))}
       </div>
     </div>
   );
