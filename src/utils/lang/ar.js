@@ -30,7 +30,7 @@ export const translations = {
   exploreMoreFruits: "استكشاف المزيد من الفواكه",
   dev: "جاجان براساد",
   loginAccess: "تبحث عن وصول لتسجيل الدخول؟ تواصل معي.",
-  gram: "جم",
+  gram: "غ",
   loading: "جار التحميل...",
   noFruitFound:
     "لم يتم العثور على فاكهة بهذا الاسم. يرجى تحديث الصفحة أو البحث عن فاكهة أخرى.",
@@ -44,4 +44,6 @@ export const translations = {
   invalidPassword:
     "يجب أن تكون كلمة المرور بطول 8 أحرف مع مزيج من الأحرف والأرقام",
   credits: "الاعتمادات",
+  suggestedFruits: "الكربوهيدرات",
+  carbs: "كربوهيدرات",
 };

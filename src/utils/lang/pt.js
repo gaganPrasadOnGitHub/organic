@@ -45,4 +45,6 @@ export const translations = {
   invalidPassword:
     "A senha deve ter pelo menos 8 caracteres, incluindo letras e números",
   credits: "Créditos",
+  suggestedFruits: "Frutas sugeridas",
+  carbs: "Carbs",
 };

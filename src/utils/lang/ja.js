@@ -30,7 +30,7 @@ export const translations = {
   exploreMoreFruits: "他のフルーツを探索",
   dev: "ガガン・プラサード",
   loginAccess: "ログインアクセスをお探しですか？私と連絡を取ってください。",
-  gram: "グラム",
+  gram: "瓦",
   loading: "読み込み中...",
   noFruitFound:
     "そのようなフルーツは見つかりませんでした。ページを更新するか、別のフルーツを検索してください。",
@@ -45,4 +45,6 @@ export const translations = {
   invalidPassword:
     "パスワードは8文字以上で、文字と数字の組み合わせである必要があります",
   credits: "クレジット",
+  suggestedFruits: "推奨される果物",
+  carbs: "炭水",
 };

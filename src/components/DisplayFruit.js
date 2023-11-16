@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectFruitList } from "../utils/storeSlices/fruitsSlice";
 import tree from "../assets/tree.png";
-import DisplayCard from "./DisplayCard";
 import { translations } from "../utils/lang/translations";
 import { useModalHeight } from "../hooks/useModalHeight";
+import ImageLoader from "./ImageLoader";
+import SuggestedFruits from "./SuggestedFruit";
 
 const DisplayFruit = () => {
   const { name } = useParams();
@@ -13,29 +14,6 @@ const DisplayFruit = () => {
   const [fruit, setFruit] = useState();
   const selectedLanguage = useSelector((state) => state.language);
   const modalHeight = useModalHeight();
-
-  const getRandomIndexes = (max, count) => {
-    const indexes = [];
-    while (indexes.length < count) {
-      const randomIndex = Math.floor(Math.random() * max);
-      if (!indexes.includes(randomIndex)) {
-        indexes.push(randomIndex);
-      }
-    }
-    return indexes;
-  };
-
-  const randomFruits = useMemo(() => {
-    if (!FruitList || FruitList.length === 0 || !fruit) {
-      return [];
-    }
-
-    const filteredFruits = FruitList.filter(
-      (f) => f.name.toLowerCase() !== name.toLowerCase()
-    );
-    const randomIndexes = getRandomIndexes(filteredFruits.length, 2);
-    return randomIndexes.map((index) => filteredFruits[index]);
-  }, [FruitList, name, fruit]);
 
   useEffect(() => {
     if (!FruitList || FruitList.length === 0) {
@@ -51,7 +29,7 @@ const DisplayFruit = () => {
   if (!FruitList || FruitList.length === 0 || !fruit) {
     return (
       <div className="loading">
-        <span class="loader"></span>
+        <span className="loader"></span>
       </div>
     );
   }
@@ -59,10 +37,10 @@ const DisplayFruit = () => {
   return (
     <div
       style={{ height: modalHeight }}
-      className="product__container mobile_container_shadow"
+      className="product__container scroll mobile_container_shadow"
     >
       <div className="title__wrapper">
-        <h2 className="title">{fruit?.name}</h2>
+        <h2 className="title main_title">{fruit?.name}</h2>
         <div className="subtitle__wrapper">
           <p className="subtitle_with_label">
             <small>{translations[selectedLanguage].genus}</small>
@@ -82,17 +60,11 @@ const DisplayFruit = () => {
         <div>
           <p className="description__card">{fruit.description}</p>
 
-          {randomFruits && (
-            <div className="suggestion__container">
-              <DisplayCard
-                className="suggestion_card"
-                fruit={randomFruits[0]}
-              />
-              <DisplayCard
-                className="suggestion_card"
-                fruit={randomFruits[1]}
-              />
-            </div>
+          {FruitList && (
+            <SuggestedFruits
+              fruits={FruitList}
+              selectedFruitName={fruit.name}
+            />
           )}
 
           <Link to="/fruits">
@@ -106,7 +78,11 @@ const DisplayFruit = () => {
         </div>
 
         <div className="product_image__wrapper">
-          <img className="product_image" src={fruit.imageUrl} alt="main" />
+          <ImageLoader
+            src={fruit?.imageUrl}
+            alt="main"
+            className="product_image"
+          />
           <p className="nutrition-item fat">
             {translations[selectedLanguage].fat} {fruit.nutrition.fat}
             {translations[selectedLanguage].gram}

@@ -20,7 +20,7 @@ const FruitForm = () => {
   if (!formData) {
     return (
       <div className="loading">
-        <span class="loader"></span>
+        <span className="loader"></span>
       </div>
     );
   }
@@ -222,7 +222,7 @@ const FruitForm = () => {
 
           {loading && (
             <div className="overlay update_overlay">
-              <span class="loader"></span>
+              <span className="loader"></span>
             </div>
           )}
         </div>

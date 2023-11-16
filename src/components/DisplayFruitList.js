@@ -1,22 +1,36 @@
-// DisplayFruitList.js
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DisplayCard from "./DisplayCard";
 import useFruitList from "../hooks/useFruitList";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFilteredList,
+  selectSelectedSortOption,
   setFilteredList,
   setSelectedSortOption,
 } from "../utils/storeSlices/fruitsSlice";
 import SortFilter from "./SortFilter";
 import SeasonFilter from "./SeasonFilter";
 import { useModalHeight } from "../hooks/useModalHeight";
+import Pagination from "./Pagination";
 
 const DisplayFruitList = () => {
   const { fruits, isLoading } = useFruitList();
   const filteredFruitList = useSelector(selectFilteredList);
+  const selectedSortOption = useSelector(selectSelectedSortOption);
   const dispatch = useDispatch();
   const modalHeight = useModalHeight(216, 245);
+
+  const itemsPerPage = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(filteredFruitList.length / itemsPerPage);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredFruitList.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   useEffect(() => {
     const sortedFruits = [...fruits].sort((a, b) =>
@@ -26,29 +40,43 @@ const DisplayFruitList = () => {
     dispatch(setFilteredList(sortedFruits));
   }, [dispatch, fruits]);
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   if (isLoading || !fruits.length) {
     return (
       <div className="loading">
-        <span class="loader"></span>
+        <span className="loader"></span>
       </div>
     );
   }
 
   return (
-    <div>
+    <>
       <div className="filter__container">
-        <SeasonFilter />
+        <SeasonFilter paginate={paginate} />
         <SortFilter />
       </div>
-      <div
-        style={{ height: modalHeight }}
-        className="card_list__container container_shadow"
-      >
-        {filteredFruitList.map((fruit) => (
-          <DisplayCard className="primary_card" key={fruit.id} fruit={fruit} />
-        ))}
+      <div className="container_shadow scroll" style={{ height: modalHeight }}>
+        <div className="card_list__container">
+          {currentItems.map((fruit) => (
+            <DisplayCard
+              className="primary_card"
+              key={fruit.id}
+              fruit={fruit}
+              selectedSortOption={selectedSortOption}
+            />
+          ))}
+        </div>
+
+        {totalPages > 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            paginate={paginate}
+          />
+        )}
       </div>
-    </div>
+    </>
   );
 };
 

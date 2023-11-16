@@ -44,4 +44,6 @@ export const translations = {
   invalidPassword:
     "पासवर्ड 8 अक्षरों का होना चाहिए, जिसमें अक्षर और संख्याएं शामिल हों",
   credits: "क्रेडिट्स",
+  suggestedFruits: "सुझाए गए फल",
+  carbs: "कार्बो",
 };

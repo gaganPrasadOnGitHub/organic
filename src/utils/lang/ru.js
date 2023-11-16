@@ -44,4 +44,6 @@ export const translations = {
   invalidPassword:
     "Пароль должен содержать не менее 8 символов, включая буквы и цифры",
   credits: "Кредиты",
+  suggestedFruits: "Рекомендуемые фрукты",
+  carbs: "Углеводы",
 };

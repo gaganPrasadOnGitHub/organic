@@ -44,4 +44,6 @@ export const translations = {
   invalidPassword:
     "Password must be 8 characters long with a mix of letters and numbers",
   credits: "Credits",
+  suggestedFruits: "Suggested fruits",
+  carbs: "Carbs",
 };

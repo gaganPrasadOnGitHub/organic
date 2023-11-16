@@ -15,7 +15,7 @@ import {
 } from "../utils/helpers/filterHelpers";
 import useClickOutside from "../hooks/useClickOutside";
 
-const SeasonFilter = () => {
+const SeasonFilter = ({ paginate }) => {
   const selectedLanguage = useSelector((state) => state.language);
   const filters = ["all", "spring", "summer", "autumn", "winter"];
   const [activeFilter, setActiveFilter] = useState("all");
@@ -29,6 +29,7 @@ const SeasonFilter = () => {
   const handleFilterOptionClick = (option) => {
     setActiveFilter(option);
     dispatch(setSelectedSeason(option));
+    paginate(1);
 
     const filteredFruits = filterFruitsBySelectedSeason(
       originalFruitList,

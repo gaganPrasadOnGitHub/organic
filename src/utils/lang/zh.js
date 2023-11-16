@@ -42,4 +42,6 @@ export const translations = {
   invalidEmail: "无效的电子邮件地址",
   invalidPassword: "密码必须为8个字符, 包含字母和数字",
   credits: "信用",
+  suggestedFruits: "推荐水果",
+  carbs: "碳水",
 };
