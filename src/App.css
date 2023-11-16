@@ -785,7 +785,7 @@ button.pagination_button img {
   border: 15px solid;
   box-sizing: border-box;
   animation: rotation 1.5s linear infinite;
-  border-image: radial-gradient(1Q, #ed4264 25px, #0000);
+  border-image: radial-gradient(1Q, #ed4264 25px, #ed4264);
   border-color: var(--primary-color) var(--secondary-color);
 }
 
