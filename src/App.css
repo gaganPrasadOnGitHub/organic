@@ -782,7 +782,7 @@ button.pagination_button img {
   border-radius: 50%;
   translate: -50% -50%;
   display: inline-block;
-  border: 15px dotted;
+  border: 10px dotted;
   box-sizing: border-box;
   animation: rotation 1.5s linear infinite;
   border-color: var(--primary-color) var(--secondary-color);
