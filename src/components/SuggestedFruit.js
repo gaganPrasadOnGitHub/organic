@@ -30,7 +30,7 @@ const SuggestedFruits = ({ fruits, selectedFruitName }) => {
   return (
     <div>
       <p className="title secondary_title">
-        {translations[selectedLanguage].SuggestedFruits}
+        {translations[selectedLanguage].suggestedFruits}
       </p>
       <div className="suggestion__container">
         {randomIndexes.map((index) => (
