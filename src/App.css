@@ -713,6 +713,9 @@ button.pagination_button img {
 /* end fruit page */
 
 /* Update page */
+.product__container {
+  overflow: scroll;
+}
 
 .update_form {
   padding: 24px;
