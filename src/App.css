@@ -214,6 +214,7 @@ button:disabled:hover {
 .container {
   width: 95%;
   margin: 0 auto;
+  height: 100dvh;
   overflow: hidden;
   max-width: 1024px;
 }
@@ -713,8 +714,14 @@ button.pagination_button img {
 /* end fruit page */
 
 /* Update page */
-.product__container {
+.primary_container_height,
+.card_list_container_height {
   overflow: scroll;
+  height: calc(100dvh - 150px);
+}
+
+.card_list_container_height {
+  height: calc(100dvh - 216px);
 }
 
 .update_form {
@@ -893,9 +900,14 @@ button.pagination_button img {
     font-size: 82px;
   }
 
-  .product__container {
-    box-shadow: none;
+  .primary_container_height {
+    height: calc(100dvh - 165px);
   }
+
+  .card_list_container_height {
+    height: calc(100dvh - 245px);
+  }
+
   .product_detail__wrapper {
     flex-direction: row;
     align-items: flex-start;

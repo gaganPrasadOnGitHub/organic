@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { selectFruitList } from "../utils/storeSlices/fruitsSlice";
 import tree from "../assets/tree.png";
 import { translations } from "../utils/lang/translations";
-import { useModalHeight } from "../hooks/useModalHeight";
 import ImageLoader from "./ImageLoader";
 import SuggestedFruits from "./SuggestedFruit";
 
@@ -13,7 +12,6 @@ const DisplayFruit = () => {
   const FruitList = useSelector(selectFruitList);
   const [fruit, setFruit] = useState();
   const selectedLanguage = useSelector((state) => state.language);
-  const modalHeight = useModalHeight();
 
   useEffect(() => {
     if (!FruitList || FruitList.length === 0) {
@@ -35,10 +33,7 @@ const DisplayFruit = () => {
   }
 
   return (
-    <div
-      style={{ height: modalHeight }}
-      className="product__container scroll mobile_container_shadow"
-    >
+    <div className="primary_container_height mobile_container_shadow">
       <div className="title__wrapper">
         <h2 className="title main_title">{fruit?.name}</h2>
         <div className="subtitle__wrapper">

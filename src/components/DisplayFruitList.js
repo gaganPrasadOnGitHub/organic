@@ -10,7 +10,6 @@ import {
 } from "../utils/storeSlices/fruitsSlice";
 import SortFilter from "./SortFilter";
 import SeasonFilter from "./SeasonFilter";
-import { useModalHeight } from "../hooks/useModalHeight";
 import Pagination from "./Pagination";
 
 const DisplayFruitList = () => {
@@ -18,7 +17,6 @@ const DisplayFruitList = () => {
   const filteredFruitList = useSelector(selectFilteredList);
   const selectedSortOption = useSelector(selectSelectedSortOption);
   const dispatch = useDispatch();
-  const modalHeight = useModalHeight(216, 245);
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,7 +54,7 @@ const DisplayFruitList = () => {
         <SeasonFilter paginate={paginate} />
         <SortFilter />
       </div>
-      <div className="container_shadow scroll" style={{ height: modalHeight }}>
+      <div className="container_shadow card_list_container_height">
         <div className="card_list__container">
           {currentItems.map((fruit) => (
             <DisplayCard
