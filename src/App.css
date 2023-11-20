@@ -71,6 +71,7 @@ textarea {
   border-radius: 5px;
   background: #ffdab9c9;
   color: var(--primary-color);
+  transition: all ease-in-out 200ms;
 }
 
 input::placeholder {
@@ -86,11 +87,6 @@ textarea {
   padding: 16px;
   overflow: scroll;
   max-height: 150px;
-}
-
-input:focus-visible,
-textarea:focus-visible {
-  outline: 1px solid var(--secondary-color);
 }
 
 .input__wrapper {
@@ -423,10 +419,10 @@ button:disabled:hover {
 }
 
 .search__container input {
-  border: none;
   padding: 24px;
   border-radius: 50px;
   box-shadow: var(--primary-shadow);
+  border: 1px solid var(--primary-bg-color);
   background: linear-gradient(45deg, #fdf4e48f, transparent);
 }
 
@@ -467,6 +463,12 @@ button:disabled:hover {
 }
 
 /* search end */
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+}
 
 /* filter */
 .filter_icon {
