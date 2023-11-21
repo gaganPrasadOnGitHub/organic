@@ -791,8 +791,8 @@ button.pagination_button img {
 .loader {
   top: 50%;
   left: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   position: absolute;
   border-radius: 50%;
   translate: -50% -50%;
@@ -1025,7 +1025,7 @@ body.dark-mode {
 }
 
 .dark-mode .card.primary_card {
-  background: radial-gradient(#161614e0, #0000);
+  background: #110f0f;
   color: var(--third-color);
 }
 
