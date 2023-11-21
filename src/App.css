@@ -297,7 +297,10 @@ button:disabled:hover {
 }
 
 .language_icon {
-  width: 40px;
+  zoom: 1.6;
+  width: 25px;
+  height: 25px;
+  background: url(/src/assets/languageIcon.svg) no-repeat center;
 }
 /* Header end */
 
@@ -354,6 +357,10 @@ button:disabled:hover {
 
 .login_icon {
   width: 20px;
+  height: 20px;
+  background: var(--secondary-color);
+  -webkit-mask: url(./assets/loginIcon.svg) no-repeat center;
+  mask: url(./assets/loginIcon.svg) no-repeat center;
 }
 
 .close_icon {
@@ -541,7 +548,7 @@ textarea:focus-visible {
   gap: 24px;
   width: max-content;
   padding: 8px;
-  margin: 8px auto;
+  margin: 8px auto 16px;
   border-radius: 8px;
   background: #ffdab985;
   box-shadow: rgb(0 0 0) 0px 25px 20px -17px;
@@ -703,14 +710,6 @@ button.pagination_button img {
 
 .hover_underline_button:hover::before {
   width: 60%;
-}
-
-.button_image {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  object-fit: contain;
-  bottom: -3px;
 }
 
 /* end fruit page */
@@ -907,7 +906,7 @@ button.pagination_button img {
   }
 
   .card_list_container_height {
-    height: calc(100dvh - 245px);
+    height: calc(100dvh - 265px);
   }
 
   .product_detail__wrapper {
@@ -990,4 +989,63 @@ button.pagination_button img {
     bottom: 67px;
     top: unset;
   }
+}
+
+/* Dark mode */
+
+body.dark-mode {
+  background: black;
+  color: var(--third-color);
+}
+
+.dark-mode button {
+  background: #413c343b;
+  color: var(--third-color);
+}
+
+.dark-mode input::placeholder,
+.dark-mode a.nav_item,
+.dark-mode a,
+.dark-mode .search__container input {
+  color: var(--third-color);
+}
+
+.dark-mode .login_access_info a .underline {
+  color: var(--primary-color);
+}
+
+.dark-mode .card_image__wrapper,
+.dark-mode .pagination,
+.dark-mode .nutrition-item {
+  background: #413c343b;
+}
+
+.dark-mode .card.primary_card {
+  background: radial-gradient(#161614e0, #0000);
+  color: var(--third-color);
+}
+
+.dark-mode button.pagination_button {
+  background: none;
+}
+
+.dark-mode .suggestion_card {
+  background: var(--secondary-color);
+}
+
+#night-mode-icon {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(90deg, var(--primary-color) 50%, transparent 0);
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+}
+
+.dark-mode #night-mode-icon {
+  background: linear-gradient(90deg, var(--third-color) 50%, transparent 0);
+  border-color: var(--third-color);
+}
+
+.dark-mode .language_icon {
+  background: url(/src/assets/languageNightIcon.svg) no-repeat center;
 }

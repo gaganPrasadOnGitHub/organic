@@ -8,6 +8,7 @@ import menuIcon from "../assets/menuIcon.svg";
 import useClickOutside from "../hooks/useClickOutside";
 import { selectUser } from "../utils/storeSlices/authSlice";
 import { translations } from "../utils/lang/translations";
+import useNightMode from "../hooks/useNightMode";
 
 const Header = () => {
   const LoggedUser = useSelector(selectUser);
@@ -15,6 +16,8 @@ const Header = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
+
+  useNightMode();
 
   useClickOutside(menuRef, () => {
     closeMobileMenu();
@@ -38,6 +41,10 @@ const Header = () => {
   };
 
   const selectedLanguage = useSelector((state) => state.language);
+
+  const toggleNightModeHandler = () => {
+    document.body.classList.toggle("dark-mode");
+  };
 
   return (
     <div className="header">
@@ -76,6 +83,12 @@ const Header = () => {
             </NavLink>
           )}
           <LanguageSelector closeMobileMenu={closeMobileMenu} />
+
+          <p
+            id="night-mode-icon"
+            className="nav_item"
+            onClick={toggleNightModeHandler}
+          ></p>
 
           {!LoggedUser ? (
             <p className="nav_item" onClick={openLoginModal}>

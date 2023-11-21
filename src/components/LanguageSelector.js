@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "../utils/storeSlices/languageSlice";
-import languageIcon from "../assets/languageIcon.svg";
 import useClickOutside from "../hooks/useClickOutside";
 
 const languages = [
@@ -40,12 +39,11 @@ const LanguageSelector = () => {
 
   return (
     <div className="language_selector" ref={languageOptionsRef}>
-      <img
+      <div
         onClick={toggleOptionsVisibility}
-        className={`icon language_icon ${isOptionsVisible ? "active" : ""}`}
-        src={languageIcon}
+        className={`language_icon ${isOptionsVisible ? "active" : ""}`}
         alt="language"
-      />
+      ></div>
       {isOptionsVisible && (
         <div className="filter_options language_options blur">
           {languages.map((language) => (

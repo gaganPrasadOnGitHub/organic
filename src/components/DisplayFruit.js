@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectFruitList } from "../utils/storeSlices/fruitsSlice";
-import tree from "../assets/tree.png";
 import { translations } from "../utils/lang/translations";
 import ImageLoader from "./ImageLoader";
 import SuggestedFruits from "./SuggestedFruit";
@@ -67,7 +66,6 @@ const DisplayFruit = () => {
               <span className="button_text">
                 {translations[selectedLanguage].exploreMoreFruits}
               </span>
-              <img className="button_image" src={tree} alt="tree" />
             </button>
           </Link>
         </div>

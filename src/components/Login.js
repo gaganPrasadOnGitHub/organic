@@ -13,7 +13,6 @@ import {
 import { signInWithEmailAndPassword } from "firebase/auth";
 import InputField from "./InputField";
 import closeIcon from "../assets/closeIcon.svg";
-import loginIcon from "../assets/loginIcon.svg";
 import { translations } from "../utils/lang/translations";
 
 const Login = ({ onClose }) => {
@@ -119,19 +118,18 @@ const Login = ({ onClose }) => {
           {authError && <small className="error_message">{authError}</small>}
           <button className="form_login_button" type="submit">
             {translations[selectedLanguage].login}
-            <img src={loginIcon} alt="" />
+            <div className="login_icon"></div>
           </button>
         </form>
         <div className="login_access_info">
           <small>
-            {translations[selectedLanguage].loginAccess}{" "}
             <a
-              className="underline"
               href="https://www.linkedin.com/in/gagan-prasad/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              {translations[selectedLanguage].loginAccess}{" "}
+              <span className="underline">LinkedIn</span>
             </a>
           </small>
         </div>
