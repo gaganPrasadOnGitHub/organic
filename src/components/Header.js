@@ -44,6 +44,7 @@ const Header = () => {
 
   const toggleNightModeHandler = () => {
     document.body.classList.toggle("dark-mode");
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -84,11 +85,9 @@ const Header = () => {
           )}
           <LanguageSelector closeMobileMenu={closeMobileMenu} />
 
-          <p
-            id="night-mode-icon"
-            className="nav_item"
-            onClick={toggleNightModeHandler}
-          ></p>
+          <div className="nav_item w-100" onClick={toggleNightModeHandler}>
+            <p id="night-mode-icon"></p>
+          </div>
 
           {!LoggedUser ? (
             <p className="nav_item" onClick={openLoginModal}>
