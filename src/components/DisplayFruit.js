@@ -60,14 +60,6 @@ const DisplayFruit = () => {
               selectedFruitName={fruit.name}
             />
           )}
-
-          <Link to="/fruits">
-            <button className="explore_button hover_underline_button">
-              <span className="button_text">
-                {translations[selectedLanguage].exploreMoreFruits}
-              </span>
-            </button>
-          </Link>
         </div>
 
         <div className="product_image__wrapper">
@@ -96,6 +88,9 @@ const DisplayFruit = () => {
             {fruit.nutrition.carbohydrates}
             {translations[selectedLanguage].gram}
           </p>
+          <Link to="/fruits" className="explore_text">
+            {translations[selectedLanguage].exploreMoreFruits}
+          </Link>
         </div>
       </div>
     </div>

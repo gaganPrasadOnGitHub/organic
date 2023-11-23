@@ -2,17 +2,17 @@ import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Login from "./Login";
-import useLogin from "../hooks/useLogin";
 import LanguageSelector from "./LanguageSelector";
 import menuIcon from "../assets/menuIcon.svg";
 import useClickOutside from "../hooks/useClickOutside";
 import { selectUser } from "../utils/storeSlices/authSlice";
 import { translations } from "../utils/lang/translations";
 import useNightMode from "../hooks/useNightMode";
+import useSignOut from "../hooks/useSignOut";
 
 const Header = () => {
   const LoggedUser = useSelector(selectUser);
-  const { handleSignOut } = useLogin();
+  const { handleSignOut } = useSignOut();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -70,6 +70,12 @@ const Header = () => {
             isMobileMenuOpen ? "mobile_menu_open" : ""
           }`}
         >
+          <div className="nav_item w-100" onClick={toggleNightModeHandler}>
+            <p id="night-mode-icon"></p>
+          </div>
+
+          <LanguageSelector closeMobileMenu={closeMobileMenu} />
+
           <NavLink to="/fruits" className="nav_item" onClick={closeMobileMenu}>
             <p>{translations[selectedLanguage].explore}</p>
           </NavLink>
@@ -83,11 +89,6 @@ const Header = () => {
               <p>{translations[selectedLanguage].update}</p>
             </NavLink>
           )}
-          <LanguageSelector closeMobileMenu={closeMobileMenu} />
-
-          <div className="nav_item w-100" onClick={toggleNightModeHandler}>
-            <p id="night-mode-icon"></p>
-          </div>
 
           {!LoggedUser ? (
             <p className="nav_item" onClick={openLoginModal}>

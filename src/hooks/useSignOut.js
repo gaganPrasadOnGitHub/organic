@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { setError, setLoading, setUser } from "../utils/storeSlices/authSlice";
 import { auth } from "../utils/firebase/firebase";
 
-const useLogin = () => {
+const useSignOut = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,4 +26,4 @@ const useLogin = () => {
     handleSignOut,
   };
 };
-export default useLogin;
+export default useSignOut;

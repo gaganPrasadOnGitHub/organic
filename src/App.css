@@ -207,7 +207,6 @@ button:disabled:hover {
 
 /* Icons */
 .icon {
-  width: 30px;
   cursor: pointer;
 }
 
@@ -301,7 +300,7 @@ button:disabled:hover {
 }
 
 .language_icon {
-  zoom: 1.6;
+  zoom: 1.4;
   width: 25px;
   height: 25px;
   background: url(/src/assets/languageIcon.svg) no-repeat center;
@@ -483,6 +482,7 @@ textarea:focus-visible {
 
 /* filter */
 .filter_icon {
+  width: 30px;
   display: block;
 }
 
@@ -622,10 +622,14 @@ button.pagination_button img {
 .product_image__wrapper {
   width: 250px;
   height: 250px;
-  margin: 16px auto;
+  margin: 16px auto 36px;
   border-radius: 50%;
   position: relative;
   background: #fdf4e43b;
+}
+
+.product_image {
+  animation: scaleUp 10000ms ease-in-out infinite alternate;
 }
 
 .nutrition-item {
@@ -635,6 +639,7 @@ button.pagination_button img {
   padding: 16px;
   border-radius: 50px;
   box-shadow: var(--primary-shadow);
+  transition: all ease-in-out 5000ms;
 }
 
 .nutrition-item.fat {
@@ -645,11 +650,13 @@ button.pagination_button img {
 .nutrition-item.sugar {
   top: 52px;
   left: -52px;
+  animation: rightLeft 8000ms ease-in-out infinite alternate;
 }
 
 .nutrition-item.protein {
   top: 15px;
   right: -40px;
+  animation: rightLeft 6000ms ease-in-out infinite alternate-reverse;
 }
 
 .nutrition-item.calories {
@@ -671,7 +678,9 @@ button.pagination_button img {
   background: #fdf4e43b;
   max-height: 135px;
   overflow-y: auto;
+  line-height: 1.5;
 }
+
 .description__card::-webkit-scrollbar {
   display: unset;
   margin-left: 8px;
@@ -700,22 +709,42 @@ button.pagination_button img {
   translate: 0 2px;
 }
 
-.explore_button {
-  position: relative;
-  margin: 16px;
-  background: #ffdab987;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+.explore_text {
+  position: absolute;
+  bottom: -36px;
+  padding: 8px 8px 0;
+  border-radius: 50px;
+  right: -8px;
+  font-weight: 600;
+  transition: all ease-in-out 200ms;
 }
 
-.explore_button:hover {
-  background: #ffdab987;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+.explore_text:hover {
+  translate: 0 2px;
 }
 
-.hover_underline_button:hover::before {
-  width: 60%;
+.explore_text::before {
+  width: 20px;
+  right: 10px;
+  content: "";
+  bottom: -8px;
+  display: flex;
+  position: absolute;
+  border-radius: 50px;
+  align-items: center;
+  transition: 300ms all ease-in-out;
+  border-bottom: 3px solid var(--third-color);
+  animation: line 2000ms ease-in-out infinite alternate;
 }
 
+@keyframes line {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -30px;
+  }
+}
 /* end fruit page */
 
 /* Update page */
@@ -806,10 +835,28 @@ button.pagination_button img {
 
 @keyframes rotation {
   0% {
-    transform: rotate(0deg);
+    rotate: 0deg;
   }
   100% {
-    transform: rotate(360deg);
+    rotate: 360deg;
+  }
+}
+
+@keyframes rightLeft {
+  0% {
+    translate: 0;
+  }
+  100% {
+    translate: 10px;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.05;
   }
 }
 
@@ -928,6 +975,7 @@ button.pagination_button img {
     bottom: unset;
     right: 8px;
     top: 8px;
+    animation: rightLeft 6000ms ease-in-out infinite alternate-reverse;
   }
 
   .nutrition-item.sugar {
@@ -938,6 +986,7 @@ button.pagination_button img {
   .nutrition-item.protein {
     right: unset;
     left: 0;
+    animation: upDown 6000ms ease-in-out infinite alternate-reverse;
   }
 
   .nutrition-item.calories {
@@ -958,6 +1007,23 @@ button.pagination_button img {
   .footer {
     position: fixed;
     bottom: -3px;
+  }
+
+  @keyframes rightLeft {
+    0% {
+      translate: 0;
+    }
+    100% {
+      translate: 15px;
+    }
+  }
+  @keyframes upDown {
+    0% {
+      translate: 0;
+    }
+    100% {
+      translate: 0 10px;
+    }
   }
 }
 
@@ -980,18 +1046,21 @@ button.pagination_button img {
     bottom: 140px;
     left: -80px;
     top: unset;
+    animation: rightLeft 9000ms ease-in-out infinite alternate-reverse;
   }
 
   .nutrition-item.calories {
     top: 160px;
     right: -88px;
     bottom: unset;
+    animation: rightLeft 6000ms ease-in-out infinite alternate-reverse;
   }
 
   .nutrition-item.carbohydrates {
     left: -108px;
     bottom: 67px;
     top: unset;
+    animation: rightLeft 8000ms ease-in-out infinite alternate-reverse;
   }
 }
 
@@ -1038,8 +1107,8 @@ body.dark-mode {
 }
 
 #night-mode-icon {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background: linear-gradient(90deg, var(--primary-color) 50%, transparent 0);
   border-radius: 50px;
   border: 2px solid var(--primary-color);
@@ -1052,4 +1121,12 @@ body.dark-mode {
 
 .dark-mode .language_icon {
   background: url(/src/assets/languageNightIcon.svg) no-repeat center;
+}
+
+.dark-mode .icon {
+  filter: brightness(6);
+}
+
+.dark-mode .explore_text {
+  color: var(--secondary-color);
 }

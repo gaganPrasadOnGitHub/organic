@@ -1,5 +1,5 @@
 import React from "react";
-import apple from "../assets/apple.png";
+import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { isValidUrl } from "../utils/validation";
 import { useSelector } from "react-redux";
@@ -26,10 +26,7 @@ const DisplayCard = ({
   const cardContent = (
     <div className={`card ${className || ""}`} onClick={onClick}>
       <div className="card_image__wrapper">
-        <ImageLoader
-          src={isValidUrl(imageUrl) ? imageUrl : apple}
-          alt="fruit"
-        />
+        <ImageLoader src={isValidUrl(imageUrl) ? imageUrl : logo} alt="fruit" />
       </div>
 
       <div className="card_info__wrapper">

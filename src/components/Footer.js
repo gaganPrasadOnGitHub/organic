@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="footer">
       <small className="footer_text">
         {translations[selectedLanguage].organic}{" "}
-        <img className="react_icon" src={reactIcon} alt="react" /> 2023{" "}
+        <img className="icon react_icon" src={reactIcon} alt="react" /> 2023{" "}
         <a
           className="underline"
           href="https://www.linkedin.com/in/gagan-prasad/"

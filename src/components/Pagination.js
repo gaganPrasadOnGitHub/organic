@@ -33,7 +33,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
           disabled={currentPage === 1}
           onClick={() => paginate(currentPage - 1)}
         >
-          <img src={Left} alt="left" />
+          <img className="icon" src={Left} alt="left" />
         </button>
       )}
 
@@ -55,7 +55,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
           disabled={currentPage === totalPages}
           onClick={() => paginate(currentPage + 1)}
         >
-          <img src={Right} alt="right" />
+          <img className="icon" src={Right} alt="right" />
         </button>
       )}
     </div>

@@ -21,7 +21,7 @@ const Home = () => {
           <Route path="/update" element={<UpdateFruit />} />
         </Route>
         <Route path="/info" element={<Info />} />
-        <Route path="*" element={<Navigate to="/fruit/Apple" />} />
+        <Route path="*" element={<Navigate to="/fruit/Fig" />} />
       </Routes>
       <Footer />
     </div>

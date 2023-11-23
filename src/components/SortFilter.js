@@ -53,7 +53,7 @@ const SortFilter = () => {
 
   return (
     <div className="sorting__container" ref={optionsContainerRef}>
-      <div className="sorting_icon" onClick={handleSortIconClick}>
+      <div className="icon sorting_icon" onClick={handleSortIconClick}>
         <img src={sortIcon} alt="sort" />
       </div>
       {isOptionsVisible && (

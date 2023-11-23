@@ -23,8 +23,11 @@ export function useAuth() {
 
       if (authUser) {
         const { uid, email } = authUser;
-        dispatch(setUser({ uid, email }));
+        const userPayload = { uid, email };
+        localStorage.setItem("user", JSON.stringify(userPayload));
+        dispatch(setUser(userPayload));
       } else {
+        localStorage.removeItem("user");
         dispatch(setUser(null));
       }
       setLoading(false);
